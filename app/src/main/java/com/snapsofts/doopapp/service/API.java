@@ -1,4 +1,4 @@
-package doopapp.snapsofts.com.doopapp.service;
+package com.snapsofts.doopapp.service;
 
 /**
  * Created by HungNT on 4/19/16.

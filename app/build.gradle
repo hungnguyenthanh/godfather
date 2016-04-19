@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "doopapp.snapsofts.com.doopapp"
+        applicationId "com.snapsofts.doopapp"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
