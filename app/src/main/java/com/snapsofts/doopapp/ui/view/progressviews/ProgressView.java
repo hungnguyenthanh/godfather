@@ -31,6 +31,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
 import com.snapsofts.doopapp.R;
@@ -148,7 +149,7 @@ abstract class ProgressView extends View implements ProgressShape {
     /**
      * @return Current progress value
      */
-    protected float getProgress() {
+    public float getProgress() {
         return progress;
     }
 
@@ -285,6 +286,13 @@ abstract class ProgressView extends View implements ProgressShape {
         trackProgressInView(progress);
     }
 
+    private void initAnimator(float startProgress, float progres) {
+        objAnimator = ObjectAnimator.ofFloat(this, PROGRESS, startProgress, progres);
+        objAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+
+        trackProgressInView(progress);
+    }
+
     private void trackProgressInView(float progress) {
         if (listenr != null) {
             listenr.onProgressUpdate(progress);
@@ -314,10 +322,9 @@ abstract class ProgressView extends View implements ProgressShape {
 
         initAnimator(maximum_progress);
         objAnimator.setDuration(animSpeedMillisec);
-        objAnimator.setRepeatCount(ValueAnimator.INFINITE);
+//        objAnimator.setRepeatCount(ValueAnimator.INFINITE);
 
         objAnimator.start();
-
     }
 
     /**
@@ -406,38 +413,6 @@ abstract class ProgressView extends View implements ProgressShape {
 
     }
 
-//TODO:*******************	SHADOW ***********************
-
-//public boolean isShadowInBackground() {
-    //return isShadow_background;
-    //}
-
-    //public void setShadowInBackground(boolean isShadow_background) {
-    //	this.isShadow_background = isShadow_background;
-    //	init();
-
-    //}
-    //public void setShadowInBackground(boolean isShadow_background, String hexColor) {
-    //this.isShadow_background = isShadow_background;
-    //convertStringToIntColor(hexColor);
-    //	init();
-
-    //}
-
-
-    //public boolean isShadowInProgress() {
-    //	return isShadow_progress;
-    //}
-    //public void setShadowInProgress(boolean isShadow_progress, String hexColor) {
-    //	this.isShadow_progress = isShadow_progress;
-    //	convertStringToIntColor(hexColor);
-    //	init();
-
-    //}
-    //public void setShadowInProgress(boolean isShadow_progress) {
-    //	this.isShadow_progress = isShadow_progress;
-    //	init();
-    //}
     private void convertStringToIntColor(String hexColor) {
         if (hexColor != null) {
             try {

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_description"
+    android:paddingTop="25dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.snapsofts.doopapp.ui.activity.MenuCouponActivity"
+    tools:showIn="@layout/activity_menu_coupon">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:gravity="center_horizontal"
+            android:text="10% Cash back on Recharge/Bill Payment of Rs. 50"
+            android:textColor="#e6000000"
+            android:textSize="17sp" />
+
+        <include layout="@layout/view_generate" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:text="Get flat 10% cashback on recharge/bill payment of Rs. 50 or more. Use the valid coupon code to avail of this offer. Maximum cashback is Rs. 25 per transaction. The code is only valid twice per user/credit debit card/Mobile number."
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

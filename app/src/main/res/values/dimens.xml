@@ -6,4 +6,10 @@
     <!-- GENERAL PROGRESS VIEW -->
     <dimen name="default_stroke_width">7dp</dimen>
     <dimen name="default_background_stroke_width">3dp</dimen>
+    <dimen name="btn_category_height">40dp</dimen>
+    <dimen name="app_bar_height">270dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="text_menu_image_size">16sp</dimen>
+    <dimen name="text_menu_title_size">18sp</dimen>
 </resources>

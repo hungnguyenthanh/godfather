@@ -15,6 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.CategoryActivity" />
+        <activity android:name=".ui.activity.MenuActivity" />
+        <activity
+            android:name=".ui.activity.MenuCouponActivity"
+            android:label="@string/title_activity_menu_coupon"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

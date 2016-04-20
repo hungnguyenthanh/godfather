@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">@color/transparent</color>
     <color name="colorPrimaryDark">#90ca49</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#7cb03f</color>
 
     <color name="shader_color">#9b9b9b</color>
     <color name="progress_color">#ffffff</color>
     <color name="background_color">#7cb03f</color>
 
-    <color name="backgournd">#90ca49</color>
+    <color name="background">#90ca49</color>
+
+    <color name="text_color_white">#ffffff</color>
+    <color name="text_color_green">#90ca49</color>
+
+    <color name="bg_button_category">#ffffff</color>
+
+    <color name="textview_menu_border">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="bg_description">#ffffff</color>
 </resources>
