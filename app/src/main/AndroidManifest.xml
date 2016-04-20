@@ -20,7 +20,8 @@
         <activity
             android:name=".ui.activity.MenuCouponActivity"
             android:label="@string/title_activity_menu_coupon"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ui.activity.ListCategoryActivity"></activity>
     </application>
 
 </manifest>

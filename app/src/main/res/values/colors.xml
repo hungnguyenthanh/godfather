@@ -18,4 +18,6 @@
     <color name="textview_menu_border">#ffffff</color>
     <color name="transparent">#00000000</color>
     <color name="bg_description">#ffffff</color>
+
+    <color name="text_item_category_description">#f57333</color>
 </resources>

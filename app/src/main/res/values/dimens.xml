@@ -9,7 +9,11 @@
     <dimen name="btn_category_height">40dp</dimen>
     <dimen name="app_bar_height">270dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
     <dimen name="text_margin">16dp</dimen>
+
     <dimen name="text_menu_image_size">16sp</dimen>
     <dimen name="text_menu_title_size">18sp</dimen>
+    <dimen name="text_item_category_size">13sp</dimen>
+    <dimen name="text_item_category_desc_size">11sp</dimen>
 </resources>

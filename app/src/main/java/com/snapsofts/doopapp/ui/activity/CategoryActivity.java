@@ -13,9 +13,6 @@ import butterknife.OnClick;
 
 public class CategoryActivity extends AppCompatActivity {
 
-    @Bind(R.id.btnFood)
-    LinearLayout btnFood;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

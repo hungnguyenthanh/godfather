@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.snapsofts.doopapp.ui.activity.ListCategoryActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.snapsofts.doopapp.ui.fragment.ListCategoryFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|top"
+        android:layout_marginTop="?attr/actionBarSize"
+        tools:layout="@layout/fragment_category_list" />
+</FrameLayout>

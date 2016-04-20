@@ -20,7 +20,6 @@
         android:src="@drawable/img_logo_splash" />
 
     <LinearLayout
-        android:id="@+id/btnFood"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_category_button"
@@ -168,6 +167,7 @@
 
 
     <ImageView
+        android:id="@+id/btnFood"
         android:layout_width="35dp"
         android:layout_height="wrap_content"
         android:src="@drawable/btn_category_next" />

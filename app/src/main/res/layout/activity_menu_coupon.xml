@@ -108,6 +108,7 @@
             android:layout_margin="@dimen/fab_margin"
             android:src="@drawable/ic_menu_add"
             app:layout_anchor="@id/app_bar"
+            app:layout_behavior="com.snapsofts.doopapp.util.FABBehavior"
             app:layout_anchorGravity="bottom|end" />
 
     </android.support.design.widget.CoordinatorLayout>
