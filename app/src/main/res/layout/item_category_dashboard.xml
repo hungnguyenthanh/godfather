@@ -6,7 +6,8 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:layout_width="20dp"
+        android:id="@+id/iconSelect"
+        android:layout_width="14dp"
         android:layout_height="wrap_content"
         android:src="@drawable/icon_select_selector" />
 

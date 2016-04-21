@@ -72,6 +72,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
+        android:animateLayoutChanges="true"
         android:background="#f6f6f6"
         android:orientation="vertical"
         android:paddingLeft="16dp"
@@ -82,6 +83,7 @@
             android:id="@+id/changeCategoryLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
             android:background="@drawable/rounded_box_gray_transparent"
             android:orientation="vertical">
 
@@ -102,6 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
                     android:layout_weight="1"
+                    android:background="@android:color/transparent"
                     android:text="@string/favourite_category"
                     android:textColor="#494949"
                     android:textSize="14sp" />
@@ -124,7 +127,9 @@
                 android:id="@+id/listCategory"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"></ListView>
+                android:layout_weight="1"
+                android:paddingLeft="16dp"
+                android:paddingRight="6dp"></ListView>
         </LinearLayout>
 
         <LinearLayout
@@ -140,12 +145,15 @@
                 android:layout_marginLeft="8dp"
                 android:src="@drawable/icon_email_gray" />
 
-            <TextView
+            <EditText
+                android:id="@+id/edtUpgradeEmail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
                 android:layout_weight="1"
-                android:text="@string/upgrade"
+                android:background="@android:color/transparent"
+                android:enabled="false"
+                android:text="dangnv.ict@gmail.com"
                 android:textColor="#494949"
                 android:textSize="14sp" />
 
@@ -165,6 +173,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/rounded_box_gray_transparent"
             android:gravity="center_vertical">
@@ -175,11 +184,15 @@
                 android:layout_marginLeft="8dp"
                 android:src="@drawable/icon_password" />
 
-            <TextView
+            <EditText
+                android:id="@+id/edtChangePassword"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:enabled="false"
+                android:inputType="textPassword"
                 android:text="@string/password_change"
                 android:textColor="#494949"
                 android:textSize="14sp" />

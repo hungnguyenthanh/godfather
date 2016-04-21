@@ -12,4 +12,5 @@
     <string name="change">Change</string>
     <string name="favourite_category">Favourite Category</string>
     <string name="password_change">Password change</string>
+    <string name="save">Save</string>
 </resources>
