@@ -9,6 +9,8 @@
         layout="@layout/toolbar" />
 
     <RelativeLayout
+        android:id="@+id/layout"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -140,10 +142,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
+        android:id="@+id/layout1"
         android:layout_below="@id/toolbar_layout">
 
         <FrameLayout
-            android:id="@+id/layoutView"
+            android:id="@+id/layoutView1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/app_bar_height">
 
@@ -224,7 +227,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/layoutView"
+            android:layout_below="@id/layoutView1"
             android:layout_marginTop="25dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
@@ -255,7 +258,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/btnAdd"
+            android:id="@+id/btnAdd1"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_alignParentRight="true"

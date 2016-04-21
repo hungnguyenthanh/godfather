@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
@@ -21,8 +22,8 @@ public class HomeActivity extends BaseActivity {
 
     @Bind(R.id.btnWishList)
     TextView btnWishList;
-    @Bind(R.id.layoutView)
-    FrameLayout layoutView;
+    @Bind(R.id.layout1)
+    View layoutView;
     private GestureDetector mDetector;
 
     @Override
@@ -34,6 +35,7 @@ public class HomeActivity extends BaseActivity {
         setSupportActionBar(toolbar);
 
         final Animation exitAnimation = AnimationUtils.loadAnimation(this, R.anim.exit_to_top);
+        final Animation inAnimation = AnimationUtils.loadAnimation(this, R.anim.in_from_top);
 
         mDetector = new GestureDetector(this, new SwipeGestureDetector(
                 new SwipeGestureDetector.OnSwipeListener() {
@@ -44,6 +46,7 @@ public class HomeActivity extends BaseActivity {
                                 layoutView.startAnimation(exitAnimation);
                                 break;
                             case SwipeGestureDetector.DOWN:
+                                layoutView.startAnimation(inAnimation);
                                 break;
                         }
                     }
