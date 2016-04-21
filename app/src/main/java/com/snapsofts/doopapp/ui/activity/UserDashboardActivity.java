@@ -12,6 +12,7 @@ import com.snapsofts.doopapp.R;
 import org.w3c.dom.Text;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -19,37 +20,38 @@ import butterknife.OnClick;
  */
 public class UserDashboardActivity extends BaseActivity {
     @Bind(R.id.changeCategoryLayout)
-    private LinearLayout changeCategoryLayout;
+    LinearLayout changeCategoryLayout;
 
     @Bind(R.id.tvUpdateCategory)
-    private TextView tvUpdateCategory;
+    TextView tvUpdateCategory;
 
     @Bind(R.id.tvUpgradeEmail)
-    private TextView tvUpgradeEmail;
+    TextView tvUpgradeEmail;
 
     @Bind(R.id.tvChangePassword)
-    private TextView tvChangePassword;
+    TextView tvChangePassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashboard);
+        ButterKnife.bind(this);
 
         btnDashboard.setVisibility(View.GONE);
     }
 
     @OnClick(R.id.tvUpdateCategory)
-    private void updateCategoryClick() {
+    void updateCategoryClick() {
 
     }
 
     @OnClick(R.id.tvUpgradeEmail)
-    private void upgradeEmailClick() {
+    void upgradeEmailClick() {
 
     }
 
     @OnClick(R.id.tvChangePassword)
-    private void changePasswordClick() {
+    void changePasswordClick() {
 
     }
 
