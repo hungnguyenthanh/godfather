@@ -13,9 +13,9 @@
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/imgPicture"
-        android:layout_height="60dp"
+        android:layout_height="65dp"
         android:layout_marginRight="5dp"
-        android:layout_width="60dp"
+        android:layout_width="65dp"
         android:src="@drawable/ic_category_food"
         app:civ_border_color="#fff"
         app:civ_border_width="2dp"
@@ -70,7 +70,5 @@
         <include layout="@layout/view_generate_small" />
 
     </LinearLayout>
-
-
 </LinearLayout>
 

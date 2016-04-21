@@ -14,6 +14,10 @@
 
     <dimen name="text_menu_image_size">16sp</dimen>
     <dimen name="text_menu_title_size">18sp</dimen>
+
     <dimen name="text_item_category_size">13sp</dimen>
     <dimen name="text_item_category_desc_size">11sp</dimen>
+
+    <dimen name="text_tab_category_size">13sp</dimen>
+
 </resources>

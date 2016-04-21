@@ -20,4 +20,6 @@
     <color name="bg_description">#ffffff</color>
 
     <color name="text_item_category_description">#f57333</color>
+
+    <color name="divider_color">#e7ecf0</color>
 </resources>

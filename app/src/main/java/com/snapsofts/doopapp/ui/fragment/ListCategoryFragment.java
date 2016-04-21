@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 
 import com.snapsofts.doopapp.R;
 import com.snapsofts.doopapp.data.model.Category;
+import com.snapsofts.doopapp.ui.view.DividerItemDecoration;
+import com.snapsofts.doopapp.ui.view.VerticalSpaceItemDecoration;
 
 /**
  * A fragment representing a list of Items.
@@ -26,6 +28,7 @@ public class ListCategoryFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    private static final String ARG_SECTION_NUMBER = "section_number";
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -36,10 +39,10 @@ public class ListCategoryFragment extends Fragment {
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ListCategoryFragment newInstance(int columnCount) {
+    public static ListCategoryFragment newInstance(int sectionNumber) {
         ListCategoryFragment fragment = new ListCategoryFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
+        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
         return fragment;
     }
@@ -59,16 +62,13 @@ public class ListCategoryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_category_list, container, false);
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new CategoryRecyclerViewAdapter());
-        }
+        Context context = view.getContext();
+        RecyclerView recyclerView = (RecyclerView) view;
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), R.drawable.divider_horizontal));
+
+        recyclerView.setAdapter(new CategoryRecyclerViewAdapter());
         return view;
     }
 
