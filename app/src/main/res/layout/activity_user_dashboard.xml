@@ -12,16 +12,18 @@
 
         <ImageView
             android:id="@+id/roundedBackground"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="0dp"
+            android:adjustViewBounds="true"
             android:background="@drawable/rounded_background" />
 
         <ImageView
             android:id="@+id/background1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:background="@drawable/bg_user_dashboard" />
 
         <ImageView
@@ -32,7 +34,8 @@
             android:layout_alignLeft="@+id/roundedBackground"
             android:layout_alignRight="@+id/roundedBackground"
             android:layout_alignTop="@+id/roundedBackground"
-            android:padding="8dp"
+            android:adjustViewBounds="true"
+            android:padding="6dp"
             android:src="@drawable/demo_user_avatar" />
 
         <TextView
@@ -41,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgUserAvatar"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:lines="1"
             android:text="Shopshree Panda"
             android:textColor="#494949"
@@ -53,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvUserName"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             android:drawableLeft="@drawable/icon_location"
             android:drawablePadding="4dp"
             android:ellipsize="end"
@@ -103,7 +106,7 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:layout_width="72dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_box_green"
                     android:gravity="center_horizontal"
@@ -117,7 +120,8 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></ListView>
+                android:layout_height="0dp"
+                android:layout_weight="1"></ListView>
         </LinearLayout>
 
         <LinearLayout
@@ -143,7 +147,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:layout_width="72dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_box_green"
                 android:gravity="center_horizontal"
@@ -177,7 +181,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:layout_width="72dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_box_green"
                 android:gravity="center_horizontal"
