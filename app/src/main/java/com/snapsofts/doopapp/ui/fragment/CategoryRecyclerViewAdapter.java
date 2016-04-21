@@ -17,13 +17,7 @@ import java.util.List;
 public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder> {
 
     //    private final List<Category> mValues;
-//    private final ListCategoryFragment.OnListFragmentInteractionListener mListener;
     private Context mContext;
-
-    public CategoryRecyclerViewAdapter(List<Category> items, ListCategoryFragment.OnListFragmentInteractionListener listener) {
-//        mValues = items;
-//        mListener = listener;
-    }
 
     public CategoryRecyclerViewAdapter() {
     }
