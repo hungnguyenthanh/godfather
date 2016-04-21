@@ -134,7 +134,7 @@
             android:layout_height="45dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="304dp"
+            android:layout_marginTop="248dp"
             android:src="@drawable/btn_user_menu" />
     </RelativeLayout>
 
@@ -263,7 +263,7 @@
             android:layout_height="45dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="304dp"
+            android:layout_marginTop="248dp"
             android:src="@drawable/btn_user_menu" />
     </RelativeLayout>
 
