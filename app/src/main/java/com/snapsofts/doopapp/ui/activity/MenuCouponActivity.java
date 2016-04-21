@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.snapsofts.doopapp.R;
+import com.snapsofts.doopapp.data.model.User;
 
 public class MenuCouponActivity extends AppCompatActivity {
 
@@ -24,7 +25,12 @@ public class MenuCouponActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuCouponActivity.this, ListCategoryActivity.class));
+                if (!User.userLoggedIn()) { //User not logged in => Show login screen.
+                    Intent intent = new Intent(MenuCouponActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                } else {
+                    startActivity(new Intent(MenuCouponActivity.this, ListCategoryActivity.class));
+                }
             }
         });
     }
