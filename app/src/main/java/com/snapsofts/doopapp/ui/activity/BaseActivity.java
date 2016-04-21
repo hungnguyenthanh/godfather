@@ -44,9 +44,7 @@ public class BaseActivity extends AppCompatActivity {
             btnHome.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(BaseActivity.this, HomeActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                    buttonHomeClick();
                 }
             });
         }
@@ -54,12 +52,7 @@ public class BaseActivity extends AppCompatActivity {
             btnWishList.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (User.userLoggedIn(BaseActivity.this)) {
-                        Intent intent = new Intent(BaseActivity.this, WishlistListActivity.class);
-                        startActivity(intent);
-                    } else {
-                        gotoLogin();
-                    }
+                    buttonWishlistClick();
                 }
             });
         }
@@ -67,15 +60,34 @@ public class BaseActivity extends AppCompatActivity {
             btnDashboard.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (User.userLoggedIn(BaseActivity.this)) {
-                        Intent intent = new Intent(BaseActivity.this, UserDashboardActivity.class);
-                        startActivity(intent);
-                    } else {
-                        gotoLogin();
-                    }
+                    buttonUserDashboardClick();
                 }
             });
         }
+    }
+
+    protected void buttonUserDashboardClick() {
+        if (User.userLoggedIn(BaseActivity.this)) {
+            Intent intent = new Intent(BaseActivity.this, UserDashboardActivity.class);
+            startActivity(intent);
+        } else {
+            gotoLogin();
+        }
+    }
+
+    protected void buttonWishlistClick() {
+        if (User.userLoggedIn(BaseActivity.this)) {
+            Intent intent = new Intent(BaseActivity.this, WishlistListActivity.class);
+            startActivity(intent);
+        } else {
+            gotoLogin();
+        }
+    }
+
+    protected void buttonHomeClick() {
+        Intent intent = new Intent(BaseActivity.this, HomeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     protected void gotoLogin() {
