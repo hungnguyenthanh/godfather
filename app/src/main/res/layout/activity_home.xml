@@ -17,6 +17,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:src="@drawable/img_menu_sample"
             android:scaleType="centerCrop" />
 
         <ImageView
@@ -123,7 +124,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/btnUserMenu"
+        android:id="@+id/btnAdd"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_alignParentRight="true"

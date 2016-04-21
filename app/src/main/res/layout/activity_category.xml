@@ -19,36 +19,12 @@
         android:adjustViewBounds="true"
         android:src="@drawable/img_logo_splash" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_category_button"
-        android:gravity="center_vertical"
-        android:paddingBottom="3dp"
-        android:paddingLeft="13dp"
-        android:paddingRight="13dp"
-        android:paddingTop="3dp">
-
-        <ImageView
-            android:layout_width="28dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_category_food" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Food"
-            android:textColor="@color/text_color_green"
-            android:textSize="18sp" />
-    </LinearLayout>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:text="Select Coupon"
         android:textColor="@color/text_color_white"
         android:textSize="16sp"
@@ -60,10 +36,10 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/bg_category_button"
         android:gravity="center_vertical"
-        android:paddingBottom="3dp"
+        android:paddingBottom="8dp"
         android:paddingLeft="13dp"
         android:paddingRight="13dp"
-        android:paddingTop="3dp">
+        android:paddingTop="8dp">
 
         <ImageView
             android:layout_width="28dp"
@@ -96,10 +72,10 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/bg_category_button"
         android:gravity="center_vertical"
-        android:paddingBottom="3dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="3dp">
+        android:paddingBottom="8dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:paddingTop="8dp">
 
         <ImageView
             android:layout_width="28dp"
@@ -110,9 +86,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:singleLine="true"
             android:text="Food"
             android:textColor="@color/text_color_green"
             android:textSize="18sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/btn_category_tick" />
     </LinearLayout>
 
     <LinearLayout
@@ -121,10 +108,10 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/bg_category_button"
         android:gravity="center_vertical"
-        android:paddingBottom="3dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="3dp">
+        android:paddingBottom="8dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:paddingTop="8dp">
 
         <ImageView
             android:layout_width="28dp"
@@ -135,9 +122,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:singleLine="true"
             android:text="Food"
             android:textColor="@color/text_color_green"
             android:textSize="18sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/btn_category_tick" />
     </LinearLayout>
 
     <LinearLayout
@@ -146,10 +144,10 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/bg_category_button"
         android:gravity="center_vertical"
-        android:paddingBottom="3dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="3dp">
+        android:paddingBottom="8dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:paddingTop="8dp">
 
         <ImageView
             android:layout_width="28dp"
@@ -160,9 +158,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:singleLine="true"
             android:text="Food"
             android:textColor="@color/text_color_green"
             android:textSize="18sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/btn_category_tick" />
     </LinearLayout>
 
 

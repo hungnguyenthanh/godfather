@@ -31,9 +31,6 @@
             android:name=".ui.activity.ChooseCategoryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.MenuActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.activity.HomeActivity"
             android:label="@string/title_activity_menu_coupon"
             android:screenOrientation="portrait"
