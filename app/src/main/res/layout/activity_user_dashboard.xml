@@ -96,7 +96,7 @@
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginLeft="6dp"
                     android:src="@drawable/icon_favorite_category" />
 
                 <TextView
@@ -115,8 +115,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_box_green"
                     android:gravity="center_horizontal"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:text="@string/select"
                     android:textColor="@color/text_color_white"
                     android:textSize="12sp" />
@@ -143,7 +143,7 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="6dp"
                 android:src="@drawable/icon_email_gray" />
 
             <EditText
@@ -164,8 +164,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_box_green"
                 android:gravity="center_horizontal"
-                android:paddingBottom="12dp"
-                android:paddingTop="12dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
                 android:text="@string/upgrade"
                 android:textColor="@color/text_color_white"
                 android:textSize="12sp" />
@@ -183,7 +183,7 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="6dp"
                 android:src="@drawable/icon_password" />
 
             <EditText
@@ -205,8 +205,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_box_green"
                 android:gravity="center_horizontal"
-                android:paddingBottom="12dp"
-                android:paddingTop="12dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
                 android:text="@string/change"
                 android:textColor="@color/text_color_white"
                 android:textSize="12sp" />
