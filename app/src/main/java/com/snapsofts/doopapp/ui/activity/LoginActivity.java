@@ -61,10 +61,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                                     @Override
                                     public void onCompleted(JSONObject object, GraphResponse response) {
-                                        Log.i("LoginActivity", object.toString());
-                                        sharedPreferences.edit().putString(Constants.kUserToken, "faketoken").commit(); //FIXME
-
                                         //TODO Call api login in here;
+                                        Log.i("LoginActivity", object.toString());
+                                        sharedPreferences.edit().putString(Constants.kUserToken, "faketoken").commit();
+                                        finish();
                                     }
                                 }
                         );
