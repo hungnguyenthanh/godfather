@@ -79,6 +79,7 @@
         android:paddingTop="12dp">
 
         <LinearLayout
+            android:id="@+id/changeCategoryLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_box_gray_transparent"
@@ -106,6 +107,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/tvUpdateCategory"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_box_green"
@@ -119,6 +121,7 @@
             </LinearLayout>
 
             <ListView
+                android:id="@+id/listCategory"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"></ListView>
@@ -147,6 +150,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/tvUpgradeEmail"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_box_green"
@@ -181,6 +185,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/tvChangePassword"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_box_green"
