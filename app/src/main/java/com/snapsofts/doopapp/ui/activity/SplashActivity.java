@@ -30,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
         System.gc();
         circleProgress.setRoundEdgeProgress(true);
         circleProgress.setWidthProgressBarLine(10);
-        circleProgress.setWidthProgressBackground(1);
+        circleProgress.setTextSize(16);
 
 
 //        new CountDownTimer(5000, 1000) {
