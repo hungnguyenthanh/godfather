@@ -56,7 +56,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        circleProgress.setProgressIndeterminateAnimation(5000);
+        circleProgress.setProgressIndeterminateAnimation(3000);
         circleProgress.setOnProgressViewListener(new OnProgressViewListener() {
             @Override
             public void onFinish() {
