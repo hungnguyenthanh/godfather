@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 /**
  * Created by Admin on 9/10/2015.
  */
+
 public class CustomViewPager extends ViewPager {
 
     private boolean enabled;

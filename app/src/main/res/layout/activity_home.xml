@@ -17,6 +17,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:src="@drawable/img_menu_sample"
             android:scaleType="centerCrop" />
 
         <ImageView
@@ -47,16 +48,16 @@
                 android:layout_marginRight="10dp"
                 android:orientation="horizontal">
 
-                <!--<com.snapsofts.doopapp.ui.view.TransparentTextTextView-->
-                    <!--style="@style/TextViewMenuImage"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginRight="5dp"-->
-                    <!--android:background="@color/text_color_white"-->
-                    <!--android:paddingLeft="8dp"-->
-                    <!--android:paddingRight="8dp"-->
-                    <!--android:text="Food"-->
-                    <!--android:textStyle="bold" />-->
+                <com.snapsofts.doopapp.ui.view.TransparentTextTextView
+                    style="@style/TextViewMenuImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/text_color_white"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:text="Food"
+                    android:textStyle="bold" />
 
                 <TextView
                     style="@style/TextViewMenuImage"
@@ -123,7 +124,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/btnUserMenu"
+        android:id="@+id/btnAdd"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_alignParentRight="true"
