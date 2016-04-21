@@ -3,7 +3,6 @@ package com.snapsofts.doopapp.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
@@ -12,9 +11,9 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.Profile;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.snapsofts.doopapp.Defines.Constants;
 import com.snapsofts.doopapp.R;
 
 import org.json.JSONObject;
@@ -30,6 +29,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private View btnLoginFacebook;
     private View btnLoginGmail;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +42,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         btnLoginFacebook.setOnClickListener(this);
         btnLoginGmail.setOnClickListener(this);
+
+        btnWishList.setVisibility(View.GONE);
+        btnDashboard.setVisibility(View.GONE);
+
+
     }
 
     private void initLoginWithFacebook() {
@@ -57,6 +62,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                                     @Override
                                     public void onCompleted(JSONObject object, GraphResponse response) {
                                         Log.i("LoginActivity", object.toString());
+                                        sharedPreferences.edit().putString(Constants.kUserToken, "faketoken").commit(); //FIXME
+
+                                        //TODO Call api login in here;
                                     }
                                 }
                         );

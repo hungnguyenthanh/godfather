@@ -35,6 +35,8 @@ public class WishlistListActivity extends BaseActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         setupTabIcons(tabLayout);
+        btnWishList.setVisibility(View.GONE);
+
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {

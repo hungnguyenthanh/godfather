@@ -9,7 +9,7 @@ import com.snapsofts.doopapp.R;
 /**
  * Created by dangnv on 4/21/16.
  */
-public class UserDashboardActivity extends AppCompatActivity {
+public class UserDashboardActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

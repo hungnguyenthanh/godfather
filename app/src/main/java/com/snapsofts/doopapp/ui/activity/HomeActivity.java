@@ -24,11 +24,10 @@ public class HomeActivity extends BaseActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!User.userLoggedIn()) { //User not logged in => Show login screen.
-                    Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
-                    startActivity(intent);
+                if (!User.userLoggedIn(HomeActivity.this)) { //User not logged in => Show login screen.
+                    gotoLogin();
                 } else {
-                    startActivity(new Intent(HomeActivity.this, WishlistListActivity.class));
+                    //TODO - Add this item to wishlist
                 }
             }
         });
