@@ -3,6 +3,7 @@ package com.snapsofts.doopapp.ui.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.snapsofts.doopapp.R;
 
@@ -14,5 +15,7 @@ public class UserDashboardActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashboard);
+
+        btnDashboard.setVisibility(View.GONE);
     }
 }

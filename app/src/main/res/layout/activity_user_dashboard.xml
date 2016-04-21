@@ -17,7 +17,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="0dp"
             android:adjustViewBounds="true"
-            android:background="@drawable/rounded_background" />
+            android:background="@drawable/cycle_green" />
 
         <ImageView
             android:id="@+id/background1"
