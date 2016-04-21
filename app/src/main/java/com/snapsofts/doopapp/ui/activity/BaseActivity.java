@@ -38,7 +38,7 @@ public class BaseActivity extends AppCompatActivity {
             btnWishList.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(BaseActivity.this, WishlistListActivity.class);
+                    Intent intent = new Intent(BaseActivity.this, UserDashboardActivity.class);
                     startActivity(intent);
                 }
             });
