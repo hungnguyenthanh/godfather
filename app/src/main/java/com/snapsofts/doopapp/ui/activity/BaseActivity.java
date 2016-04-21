@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.snapsofts.doopapp.Defines.Constants;
+import com.snapsofts.doopapp.commons.Constants;
 import com.snapsofts.doopapp.R;
 import com.snapsofts.doopapp.data.model.User;
 

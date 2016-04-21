@@ -1,4 +1,4 @@
-package com.snapsofts.doopapp.Defines;
+package com.snapsofts.doopapp.commons;
 
 /**
  * Created by dangnv on 4/21/16.

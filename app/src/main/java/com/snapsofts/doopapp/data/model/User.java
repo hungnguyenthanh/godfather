@@ -3,7 +3,7 @@ package com.snapsofts.doopapp.data.model;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.snapsofts.doopapp.Defines.Constants;
+import com.snapsofts.doopapp.commons.Constants;
 
 /**
  * Created by dangnv on 4/21/16.

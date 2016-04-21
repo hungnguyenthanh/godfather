@@ -13,7 +13,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.snapsofts.doopapp.Defines.Constants;
+import com.snapsofts.doopapp.commons.Constants;
 import com.snapsofts.doopapp.R;
 
 import org.json.JSONObject;
