@@ -58,15 +58,6 @@ public class ChooseCategoryActivity extends AppCompatActivity {
                 view = LayoutInflater.from(ChooseCategoryActivity.this).inflate(R.layout.item_listview_category, null);
             }
 
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    View iconSelect = view.findViewById(R.id.iconSelect);
-                    view.setSelected(!view.isSelected());
-                    iconSelect.setSelected(view.isSelected());
-                }
-            });
-
             return view;
         }
     }
