@@ -10,7 +10,7 @@
     android:paddingLeft="40dp"
     android:paddingRight="40dp"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.snapsofts.doopapp.ui.activity.CategoryActivity">
+    tools:context=".ui.activity.ChooseCategoryActivity">
 
     <ImageView
         android:layout_width="220dp"

@@ -18,7 +18,7 @@
         <activity android:name="com.facebook.FacebookActivity"/>
 
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name=".ui.activity.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,18 +27,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.CategoryActivity"
+            android:name=".ui.activity.ChooseCategoryActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.MenuActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.MenuCouponActivity"
+            android:name=".ui.activity.HomeActivity"
             android:label="@string/title_activity_menu_coupon"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.activity.ListCategoryActivity"
+            android:name=".ui.activity.WishlistListActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.activity.LoginActivity"

@@ -7,7 +7,7 @@
     android:background="@color/bg_description"
     android:paddingTop="25dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.snapsofts.doopapp.ui.activity.MenuCouponActivity"
+    tools:context=".ui.activity.HomeActivity"
     tools:showIn="@layout/activity_menu_coupon">
 
     <LinearLayout

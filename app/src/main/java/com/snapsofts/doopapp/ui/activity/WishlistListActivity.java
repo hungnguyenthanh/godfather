@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.snapsofts.doopapp.R;
 import com.snapsofts.doopapp.ui.fragment.ListCategoryFragment;
 
-public class ListCategoryActivity extends AppCompatActivity {
+public class WishlistListActivity extends BaseActivity {
 
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -88,8 +88,8 @@ public class ListCategoryActivity extends AppCompatActivity {
 
     }
 
-    private void setTabPadding(TabLayout mTabLayout){
-        for(int i=0; i < mTabLayout.getTabCount(); i++) {
+    private void setTabPadding(TabLayout mTabLayout) {
+        for (int i = 0; i < mTabLayout.getTabCount(); i++) {
             View tab = ((ViewGroup) mTabLayout.getChildAt(0)).getChildAt(i);
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
             p.setMargins(0, 0, 5, 0);

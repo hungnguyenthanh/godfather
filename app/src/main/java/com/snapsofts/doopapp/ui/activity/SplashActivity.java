@@ -14,7 +14,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class MainActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     @Bind(R.id.circle_progress)
     CircleProgressBar circleProgress;
@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(new Intent(MainActivity.this, CategoryActivity.class));
-                        MainActivity.this.finish();
+                        startActivity(new Intent(SplashActivity.this, ChooseCategoryActivity.class));
+                        SplashActivity.this.finish();
                     }
                 }, 500);
 

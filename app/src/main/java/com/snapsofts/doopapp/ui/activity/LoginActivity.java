@@ -24,7 +24,7 @@ import java.util.Arrays;
 /**
  * Created by dangnv on 4/21/16.
  */
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
     CallbackManager callbackManager;
 
     private View btnLoginFacebook;
