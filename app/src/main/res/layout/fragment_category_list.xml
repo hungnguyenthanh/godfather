@@ -8,4 +8,4 @@
     android:layout_height="match_parent"
     app:layoutManager="LinearLayoutManager"
     tools:context="com.snapsofts.doopapp.ui.fragment.ListCategoryFragment"
-    tools:listitem="@layout/item_category" />
+    tools:listitem="@layout/item_user_category" />
