@@ -27,6 +27,8 @@ import org.w3c.dom.Text;
  */
 public class UserDashboardActivity extends BaseActivity implements View.OnClickListener {
     LinearLayout changeCategoryLayout;
+    LinearLayout upgradeEmailLayout;
+    LinearLayout changePasswordLayout;
     TextView btnUpdateCategory;
     TextView btnUpgradeEmail;
     TextView btnChangePassword;
@@ -44,6 +46,8 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
         btnDashboard.setVisibility(View.GONE);
 
         changeCategoryLayout = (LinearLayout) findViewById(R.id.changeCategoryLayout);
+        upgradeEmailLayout = (LinearLayout) findViewById(R.id.upgradeEmailLayout);
+        changePasswordLayout = (LinearLayout) findViewById(R.id.changePasswordLayout);
 
         btnUpdateCategory = (TextView) findViewById(R.id.tvUpdateCategory);
         btnUpdateCategory.setOnClickListener(this);
@@ -97,6 +101,7 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
         } else if (view == btnUpgradeEmail) {
             btnUpgradeEmail.setSelected(!btnUpgradeEmail.isSelected());
             edtEmail.setEnabled(btnUpgradeEmail.isSelected());
+            upgradeEmailLayout.setSelected(btnUpgradeEmail.isSelected());
             if (btnUpgradeEmail.isSelected()) {
                 edtEmail.requestFocus();
                 edtEmail.setSelection(edtEmail.getText().length());
@@ -106,6 +111,7 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
         } else if (view == btnChangePassword) {
             btnChangePassword.setSelected(!btnChangePassword.isSelected());
             edtPassword.setEnabled(btnChangePassword.isSelected());
+            changePasswordLayout.setSelected(btnChangePassword.isSelected());
             if (btnChangePassword.isSelected()) {
                 edtPassword.setText("");
                 edtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
