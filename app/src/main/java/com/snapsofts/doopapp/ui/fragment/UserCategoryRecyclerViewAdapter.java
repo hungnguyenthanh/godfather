@@ -10,12 +10,12 @@ import android.widget.ImageView;
 import com.snapsofts.doopapp.R;
 import com.snapsofts.doopapp.data.model.Category;
 
-public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<CategoryRecyclerViewAdapter.ViewHolder> {
+public class UserCategoryRecyclerViewAdapter extends RecyclerView.Adapter<UserCategoryRecyclerViewAdapter.ViewHolder> {
 
     //    private final List<Category> mValues;
     private Context mContext;
 
-    public CategoryRecyclerViewAdapter() {
+    public UserCategoryRecyclerViewAdapter() {
     }
 
     @Override
