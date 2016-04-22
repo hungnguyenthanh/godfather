@@ -29,7 +29,8 @@
         android:layout_weight="1" />
 
     <ImageView
+        android:id="@+id/icon_tick"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/btn_category_tick" />
+        android:src="@drawable/icon_tick_selector" />
 </LinearLayout>

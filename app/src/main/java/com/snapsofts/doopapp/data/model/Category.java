@@ -5,4 +5,8 @@ package com.snapsofts.doopapp.data.model;
  */
 
 public class Category {
+    public String name;
+    public String categoryId;
+    public String iconUrl;
+    public boolean selected;
 }
