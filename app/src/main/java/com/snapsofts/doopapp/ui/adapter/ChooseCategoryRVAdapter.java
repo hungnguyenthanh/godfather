@@ -34,7 +34,7 @@ public class ChooseCategoryRVAdapter extends RecyclerView.Adapter<ChooseCategory
 
     @Override
     public int getItemCount() {
-        return 20;
+        return mValues.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

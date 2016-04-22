@@ -3,22 +3,33 @@ package com.snapsofts.doopapp.ui.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.LayoutTransition;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.snapsofts.doopapp.R;
+import com.snapsofts.doopapp.data.model.Category;
+import com.snapsofts.doopapp.ui.adapter.ChooseCategoryRVAdapter;
+import com.snapsofts.doopapp.ui.view.VerticalSpaceItemDecoration;
 import com.snapsofts.doopapp.ui.view.progressviews.CircleProgressBar;
 import com.snapsofts.doopapp.ui.view.progressviews.OnProgressViewListener;
+import com.snapsofts.doopapp.util.Utils;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -32,6 +43,16 @@ public class SplashActivity extends AppCompatActivity {
     @Bind(R.id.logo)
     ImageView logo;
 
+    @Bind(R.id.btnGoHome)
+    View btnGoHome;
+
+    @Bind(R.id.listCategory)
+    RecyclerView listView;
+
+    private ChooseCategoryRVAdapter mlistCategoryAdapter;
+
+    ArrayList<Category> listCategories;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,10 +65,23 @@ public class SplashActivity extends AppCompatActivity {
         circleProgress.setTextSize(16);
 
         setupAnimation();
+
+        initDemo();
+        mlistCategoryAdapter = new ChooseCategoryRVAdapter(listCategories);
+    }
+
+    private void initDemo() {
+        listCategories = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Category category = new Category();
+            category.name = "Category " + i;
+            category.categoryId = "" + i;
+            listCategories.add(category);
+        }
     }
 
     private void setupAnimation() {
-        LayoutTransition layoutTransition = ((LinearLayout) findViewById(R.id.mainLayout)).getLayoutTransition();
+        LayoutTransition layoutTransition = ((LinearLayout) findViewById(R.id.layoutAction)).getLayoutTransition();
         layoutTransition.enableTransitionType(LayoutTransition.CHANGING);
         layoutTransition.setInterpolator(LayoutTransition.CHANGING, new DecelerateInterpolator(1.0f));
     }
@@ -67,9 +101,12 @@ public class SplashActivity extends AppCompatActivity {
                             @Override
                             public void onAnimationEnd(Animator animation) {
                                 layoutProgress.setVisibility(View.GONE);
-                                LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) logo.getLayoutParams();
-                                lp.setMargins(0, -(int) getResources().getDimension(R.dimen.circle_loading_width), 0, 0);
-                                logo.setLayoutParams(lp);
+                                findViewById(R.id.listLayout).setVisibility(View.VISIBLE);
+
+
+                                listView.setLayoutManager(new LinearLayoutManager(SplashActivity.this));
+                                listView.addItemDecoration(new VerticalSpaceItemDecoration(Utils.dpToPx(SplashActivity.this, (int) getResources().getDimension(R.dimen._10dp))));
+                                listView.setAdapter(mlistCategoryAdapter);
                             }
                         });
                     }
@@ -81,5 +118,12 @@ public class SplashActivity extends AppCompatActivity {
                 tvProgress.setText((int) progress + "%");
             }
         });
+    }
+
+    @OnClick(R.id.btnGoHome)
+    public void goHomeClick(View view) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
