@@ -17,7 +17,7 @@ public class ListCategoryFragment extends Fragment {
 
     private int mListType = 1;
     private static final String ARG_SECTION_NUMBER = "section_number";
-    private CategoryRecyclerViewAdapter mAdapter;
+    private UserCategoryRecyclerViewAdapter mAdapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -56,7 +56,7 @@ public class ListCategoryFragment extends Fragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), R.drawable.divider_horizontal));
 
 
-        mAdapter = new CategoryRecyclerViewAdapter();
+        mAdapter = new UserCategoryRecyclerViewAdapter();
 
         recyclerView.setAdapter(mAdapter);
 

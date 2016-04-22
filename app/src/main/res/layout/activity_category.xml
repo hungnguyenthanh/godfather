@@ -30,10 +30,10 @@
         android:textSize="16sp"
         android:textStyle="italic" />
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/listCategory"
         android:layout_width="wrap_content"
-        android:layout_height="194dp"
+        android:layout_height="204dp"
         android:divider="@drawable/divider_horizontal_transparent"
         android:dividerHeight="6dp"
         android:scrollbars="none"
