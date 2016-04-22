@@ -97,7 +97,7 @@ public class SplashActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        layoutProgress.animate().alphaBy(0).setDuration(500).setListener(new AnimatorListenerAdapter() {
+                        layoutProgress.animate().alpha(0).setDuration(500).setListener(new AnimatorListenerAdapter() {
                             @Override
                             public void onAnimationEnd(Animator animation) {
                                 layoutProgress.setVisibility(View.GONE);
