@@ -1,9 +1,16 @@
 package com.snapsofts.doopapp.ui.activity;
 
-import android.content.Intent;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.LayoutTransition;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.snapsofts.doopapp.R;
@@ -20,6 +27,10 @@ public class SplashActivity extends AppCompatActivity {
     CircleProgressBar circleProgress;
     @Bind(R.id.tvProgress)
     TextView tvProgress;
+    @Bind(R.id.layoutProgress)
+    FrameLayout layoutProgress;
+    @Bind(R.id.logo)
+    ImageView logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,25 +43,13 @@ public class SplashActivity extends AppCompatActivity {
         circleProgress.setWidthProgressBarLine(10);
         circleProgress.setTextSize(16);
 
+        setupAnimation();
+    }
 
-//        new CountDownTimer(5000, 1000) {
-//
-//            @Override
-//            public void onTick(long millisUntilFinished) {
-//                int progress = (int) (circleProgress.getProgress() + 20);
-//                circleProgress.setProgress(progress);
-//                circleProgress.setProgressIndeterminateAnimation(1000);
-//                tvProgress.setText(progress + "%");
-//            }
-//
-//            @Override
-//            public void onFinish() {
-//                circleProgress.setProgress(100);
-//                tvProgress.setText("100%");
-//                circleProgress.setProgressIndeterminateAnimation(0);
-//            }
-//        }.start();
-
+    private void setupAnimation() {
+        LayoutTransition layoutTransition = ((LinearLayout) findViewById(R.id.mainLayout)).getLayoutTransition();
+        layoutTransition.enableTransitionType(LayoutTransition.CHANGING);
+        layoutTransition.setInterpolator(LayoutTransition.CHANGING, new DecelerateInterpolator(1.0f));
     }
 
     @Override
@@ -64,11 +63,17 @@ public class SplashActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(new Intent(SplashActivity.this, ChooseCategoryActivity.class));
-                        SplashActivity.this.finish();
+                        layoutProgress.animate().alphaBy(0).setDuration(500).setListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                layoutProgress.setVisibility(View.GONE);
+                                LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) logo.getLayoutParams();
+                                lp.setMargins(0, -(int) getResources().getDimension(R.dimen.circle_loading_width), 0, 0);
+                                logo.setLayoutParams(lp);
+                            }
+                        });
                     }
                 }, 500);
-
             }
 
             @Override

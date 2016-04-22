@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@drawable/bg_splash"
     android:gravity="center"
     android:orientation="vertical"
@@ -14,33 +16,35 @@
     tools:context=".ui.activity.SplashActivity">
 
     <FrameLayout
+        android:id="@+id/layoutProgress"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
 
         <TextView
+            android:id="@+id/tvProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="0%"
-            android:id="@+id/tvProgress"
             android:textColor="@color/text_color_white"
             android:textSize="26sp"
             android:textStyle="bold" />
 
         <com.snapsofts.doopapp.ui.view.progressviews.CircleProgressBar
             android:id="@+id/circle_progress"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="@dimen/circle_loading_width"
+            android:layout_height="@dimen/circle_loading_width"
             app:bar_width="3dp"
             app:progress="0"
             app:progress_width="6dp" />
     </FrameLayout>
 
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/circle_progress"
-        android:layout_marginTop="20dp"
         android:adjustViewBounds="true"
         android:src="@drawable/img_logo_splash" />
 </LinearLayout>

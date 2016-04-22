@@ -17,10 +17,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.snapsofts.doopapp.R;
+import com.snapsofts.doopapp.data.model.Category;
 import com.transitionseverywhere.TransitionManager;
 import com.transitionseverywhere.TransitionUtils;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 /**
  * Created by dangnv on 4/21/16.
@@ -38,9 +41,14 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
 
     private ListView listView;
 
+    private ArrayList<Category> listCategories;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        listCategories = new ArrayList<>();
+
         setContentView(R.layout.activity_user_dashboard);
 
         btnDashboard.setVisibility(View.GONE);
@@ -65,6 +73,18 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
         listView.setDividerHeight(0);
 
         setupAnimation();
+
+        initDemo();
+    }
+
+    private void initDemo() {
+        listCategories = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Category category = new Category();
+            category.name = "Category " + i;
+            category.categoryId = "" + i;
+            listCategories.add(category);
+        }
     }
 
     private void setupAnimation() {
@@ -126,7 +146,7 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
     class CategoryAdapter extends BaseAdapter {
         @Override
         public int getCount() {
-            return 10;
+            return listCategories.size();
         }
 
         @Override
@@ -145,12 +165,14 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
                 view = LayoutInflater.from(UserDashboardActivity.this).inflate(R.layout.item_category_dashboard, null);
             }
 
+            final Category category = listCategories.get(i);
+
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    category.selected = !category.selected;
                     View iconSelect = view.findViewById(R.id.iconSelect);
-                    view.setSelected(!view.isSelected());
-                    iconSelect.setSelected(view.isSelected());
+                    iconSelect.setSelected(category.selected);
                 }
             });
 
