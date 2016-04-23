@@ -13,7 +13,7 @@
 
         <ImageView
             android:id="@+id/boy"
-            android:layout_width="90dp"
+            android:layout_width="81dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-7dp"
             android:layout_marginTop="20dp"
@@ -22,7 +22,7 @@
 
         <ImageView
             android:id="@+id/girl"
-            android:layout_width="90dp"
+            android:layout_width="81dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
@@ -46,22 +46,18 @@
                 android:gravity="center_horizontal"
                 android:text="@string/create_free_doop_account"
                 android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
-            <TextView
+            <ImageView
                 android:id="@+id/btnSignupFacebook"
-                style="@style/EditTextLogin"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/textView1"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/bg_login_fb_button"
-                android:drawableLeft="@drawable/ic_fb"
-                android:drawablePadding="10dp"
+                android:layout_marginTop="16dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/btn_signup_facebook"
                 android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="Sign Up with Facebook"
                 android:textColor="@color/text_color_white" />
 
             <ImageView
@@ -70,8 +66,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/btnSignupFacebook"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/or" />
+                android:layout_marginTop="12dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/or_signup" />
 
             <LinearLayout
                 android:id="@+id/layoutLoginGmail"
@@ -84,6 +81,7 @@
                 <EditText
                     android:id="@+id/edtName"
                     style="@style/EditTextLogin"
+                    android:layout_marginTop="12sp"
                     android:hint="@string/name"
                     android:inputType="textPersonName" />
 
@@ -181,30 +179,8 @@
                 android:gravity="center_horizontal"
                 android:text="@string/login_doop_account"
                 android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
-
-            <TextView
-                android:id="@+id/btnLoginFacebook"
-                style="@style/EditTextLogin"
-                android:layout_width="177dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/bg_login_fb_button"
-                android:drawableLeft="@drawable/ic_fb"
-                android:gravity="center"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="@string/login_with_facebook"
-                android:textColor="@color/text_color_white"
-                android:textSize="13sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnLoginFacebook"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/or" />
 
             <TextView
                 android:id="@+id/btnLoginGmail"
@@ -217,6 +193,28 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="Login in with email"
+                android:textColor="@color/text_color_white"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnLoginFacebook"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/or" />
+
+            <TextView
+                android:id="@+id/btnLoginFacebook"
+                style="@style/EditTextLogin"
+                android:layout_width="177dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_login_fb_button"
+                android:drawableLeft="@drawable/ic_fb"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/login_with_facebook"
                 android:textColor="@color/text_color_white"
                 android:textSize="13sp" />
 

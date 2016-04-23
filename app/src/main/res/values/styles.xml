@@ -25,7 +25,7 @@
     </style>
 
     <style name="EditTextLogin">
-        <item name="android:layout_width">240dp</item>
+        <item name="android:layout_width">230dp</item>
         <item name="android:singleLine">true</item>
         <item name="android:layout_height">31dp</item>
         <item name="android:background">@drawable/bg_login_edittext</item>
