@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
@@ -97,7 +98,6 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
     }
 
     private void setupAnimation() {
-
         LayoutTransition layoutTransition = changeCategoryLayout.getLayoutTransition();
         layoutTransition.enableTransitionType(LayoutTransition.CHANGING);
         layoutTransition = ((ViewGroup) changeCategoryLayout.getParent()).getLayoutTransition();

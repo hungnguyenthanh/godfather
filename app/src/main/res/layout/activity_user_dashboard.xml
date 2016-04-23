@@ -1,231 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:id="@+id/mainLayout"
+    android:fillViewport="true">
 
-    <include layout="@layout/toolbar" />
-
-    <RelativeLayout
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/roundedBackground"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="0dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/cycle_green" />
+        <include layout="@layout/toolbar" />
 
-        <ImageView
-            android:id="@+id/background1"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:background="@drawable/bg_user_dashboard" />
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imgUserAvatar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/roundedBackground"
-            android:layout_alignLeft="@+id/roundedBackground"
-            android:layout_alignRight="@+id/roundedBackground"
-            android:layout_alignTop="@+id/roundedBackground"
-            android:adjustViewBounds="true"
-            android:padding="6dp"
-            android:src="@drawable/demo_user_avatar" />
+            <ImageView
+                android:id="@+id/roundedBackground"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/cycle_green" />
 
-        <TextView
-            android:id="@+id/tvUserName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imgUserAvatar"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:lines="1"
-            android:text="Shopshree Panda"
-            android:textColor="#494949"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/tvUserLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvUserName"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="6dp"
-            android:drawableLeft="@drawable/icon_location"
-            android:drawablePadding="4dp"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:lines="1"
-            android:text="Bhubaneswar"
-            android:textColor="#494949"
-            android:textSize="15sp" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_weight="1"
-        android:animateLayoutChanges="true"
-        android:background="#f6f6f6"
-        android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="12dp">
-
-        <LinearLayout
-            android:id="@+id/changeCategoryLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:animateLayoutChanges="true"
-            android:background="@drawable/rounded_box_gray_transparent"
-            android:orientation="vertical">
-
-            <LinearLayout
+            <ImageView
+                android:id="@+id/background1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@drawable/bg_user_dashboard" />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/imgUserAvatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/roundedBackground"
+                android:layout_alignLeft="@+id/roundedBackground"
+                android:layout_alignRight="@+id/roundedBackground"
+                android:layout_alignTop="@+id/roundedBackground"
+                android:src="@drawable/demo_user_avatar"
+                app:civ_border_color="@android:color/transparent"
+                app:civ_border_width="6dp" />
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgUserAvatar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:lines="1"
+                android:text="Shopshree Panda"
+                android:textColor="#494949"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvUserLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvUserName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:drawableLeft="@drawable/icon_location"
+                android:drawablePadding="4dp"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:lines="1"
+                android:text="Bhubaneswar"
+                android:textColor="#494949"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:animateLayoutChanges="true"
+            android:background="#f6f6f6"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="12dp">
+
+            <LinearLayout
+                android:id="@+id/changeCategoryLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:background="@drawable/rounded_box_gray_transparent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:src="@drawable/icon_favorite_category" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:text="@string/favourite_category"
+                        android:textColor="#494949"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvUpdateCategory"
+                        android:layout_width="76dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_box_green"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="@string/select"
+                        android:textColor="@color/text_color_white"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/listCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="6dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/upgradeEmailLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_box_gray_transparent"
+                android:gravity="center_vertical">
 
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
-                    android:src="@drawable/icon_favorite_category" />
+                    android:src="@drawable/icon_email_gray" />
 
-                <TextView
+                <EditText
+                    android:id="@+id/edtUpgradeEmail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:text="@string/favourite_category"
+                    android:enabled="false"
+                    android:singleLine="true"
+                    android:inputType="textEmailAddress"
+                    android:text="dangnv.ict@gmail.com"
                     android:textColor="#494949"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tvUpdateCategory"
+                    android:id="@+id/tvUpgradeEmail"
                     android:layout_width="76dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_box_green"
                     android:gravity="center_horizontal"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
-                    android:text="@string/select"
+                    android:text="@string/upgrade"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/changePasswordLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_box_gray_transparent"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:src="@drawable/icon_password" />
+
+                <EditText
+                    android:id="@+id/edtChangePassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:enabled="false"
+                    android:inputType="textPassword"
+                    android:text="@string/password_change"
+                    android:textColor="#494949"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvChangePassword"
+                    android:layout_width="76dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_box_green"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/change"
                     android:textColor="@color/text_color_white"
                     android:textSize="12sp" />
 
             </LinearLayout>
 
-            <ListView
-                android:id="@+id/listCategory"
+            <TextView
+                android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:paddingLeft="16dp"
-                android:paddingRight="6dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/upgradeEmailLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_box_gray_transparent"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:layout_width="28dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:src="@drawable/icon_email_gray" />
-
-            <EditText
-                android:id="@+id/edtUpgradeEmail"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:enabled="false"
-                android:singleLine="true"
-                android:text="dangnv.ict@gmail.com"
-                android:textColor="#494949"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tvUpgradeEmail"
-                android:layout_width="76dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_box_green"
-                android:gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_btn_logout"
+                android:gravity="center"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:text="@string/upgrade"
-                android:textColor="@color/text_color_white"
-                android:textSize="12sp" />
+                android:text="Logout"
+                android:textColor="@color/text_color_white" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/changePasswordLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_box_gray_transparent"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:src="@drawable/icon_password" />
-
-            <EditText
-                android:id="@+id/edtChangePassword"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:enabled="false"
-                android:inputType="textPassword"
-                android:text="@string/password_change"
-                android:textColor="#494949"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tvChangePassword"
-                android:layout_width="76dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_box_green"
-                android:gravity="center_horizontal"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="@string/change"
-                android:textColor="@color/text_color_white"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/btnLogout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Logout"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textColor="@color/text_color_white"
-            android:background="@drawable/bg_btn_logout"
-            android:gravity="center"/>
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>
