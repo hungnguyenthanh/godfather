@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -28,9 +30,6 @@ import butterknife.OnClick;
  */
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
     CallbackManager callbackManager;
-
-    private View btnLoginFacebook, btnSignupFacebook;
-    private View btnLoginGmail;
 
 
     @Override
@@ -95,11 +94,48 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         switch (view.getId()) {
             case R.id.btnLoginNow:
                 ButterKnife.findById(this, R.id.layoutLogin).setVisibility(View.VISIBLE);
-                ButterKnife.findById(this, R.id.layoutSignup).setVisibility(View.GONE);
+                Animation in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+                Animation out = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+                ButterKnife.findById(this, R.id.layoutLogin).startAnimation(in);
+                out.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        ButterKnife.findById(LoginActivity.this, R.id.layoutSignup).setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+                });
+                ButterKnife.findById(this, R.id.layoutSignup).startAnimation(out);
                 break;
             case R.id.btnSignupNow:
-                ButterKnife.findById(this, R.id.layoutLogin).setVisibility(View.GONE);
+                Animation fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+                Animation fade_out = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+                fade_out.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        ButterKnife.findById(LoginActivity.this, R.id.layoutLogin).setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
                 ButterKnife.findById(this, R.id.layoutSignup).setVisibility(View.VISIBLE);
+                ButterKnife.findById(this, R.id.layoutSignup).startAnimation(fade_in);
+                ButterKnife.findById(this, R.id.layoutLogin).startAnimation(fade_out);
                 break;
             case R.id.btnLoginFacebook:
             case R.id.btnSignupFacebook:
