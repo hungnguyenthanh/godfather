@@ -6,6 +6,7 @@
     <string name="title_activity_menu_coupon">MenuCouponActivity</string>
     <string name="action_settings">Settings</string>
     <string name="create_free_doop_account">Create a Free <b>doop</b> Account</string>
+    <string name="login_with_doop_account">Login with <b>doop</b> Account</string>
     <string name="login_doop_account">Login your <b>doop</b> Account</string>
     <string name="looking_for_deals">Looking for Deals?</string>
     <string name="select">Select</string>

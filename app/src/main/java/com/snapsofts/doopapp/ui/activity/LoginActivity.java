@@ -3,10 +3,11 @@ package com.snapsofts.doopapp.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -17,20 +18,23 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.snapsofts.doopapp.R;
 import com.snapsofts.doopapp.commons.Constants;
+import com.snapsofts.doopapp.ui.fragment.LoginEmailFragment;
+import com.snapsofts.doopapp.ui.fragment.LoginFragment;
+import com.snapsofts.doopapp.ui.fragment.SignupFragment;
 
 import org.json.JSONObject;
 
 import java.util.Arrays;
 
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by dangnv on 4/21/16.
  */
-public class LoginActivity extends BaseActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity {
     CallbackManager callbackManager;
 
+    private LoginFacebookCompletion loginFacebookCompletion;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,23 +47,56 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         btnWishList.setVisibility(View.GONE);
         btnDashboard.setVisibility(View.GONE);
 
+        showLoginFragment();
     }
 
-    private void initLoginWithFacebook() {
+    public void showLoginFragment() {
+        LoginFragment loginFragment = new LoginFragment();
+        showFragment(loginFragment, false);
+    }
+
+    public void showSignupFragment() {
+        SignupFragment signupFragment = new SignupFragment();
+        showFragment(signupFragment, true);
+    }
+
+    public void showLoginEmailFragment() {
+        LoginEmailFragment loginEmailFragment = new LoginEmailFragment();
+        showFragment(loginEmailFragment, true);
+    }
+
+    private void showFragment(Fragment fg, boolean addtoBackStack) {
+        String backStateName = fg.getClass().getName();
+
+        FragmentManager manager = getSupportFragmentManager();
+        boolean fragmentPopped = manager.popBackStackImmediate(backStateName, 0);
+
+        if (!fragmentPopped) { //fragment not in back stack, create it.
+            FragmentTransaction ft = manager.beginTransaction();
+            ft.replace(R.id.contentView, fg);
+            if (addtoBackStack) {
+                ft.addToBackStack(backStateName);
+            }
+            ft.commit();
+        }
+    }
+
+    public void initLoginWithFacebook() {
         callbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        String accessToken = loginResult.getAccessToken().getToken();
-                        Log.i("accessToken", accessToken);
-
                         GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
 
                                     @Override
                                     public void onCompleted(JSONObject object, GraphResponse response) {
-                                        //TODO Call api login in here;
+                                        //TODO should modify this
                                         Log.i("LoginActivity", object.toString());
                                         sharedPreferences.edit().putString(Constants.kUserToken, "faketoken").apply();
+                                        if (loginFacebookCompletion != null) {
+                                            loginFacebookCompletion.onCompleted(object);
+                                        }
+
                                         finish();
                                     }
                                 }
@@ -82,68 +119,18 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         );
     }
 
+    public void loginWithFacebook(LoginFacebookCompletion completion) {
+        loginFacebookCompletion = completion;
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email", "user_birthday", "user_friends"));
+    }
+
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-
-    @OnClick({R.id.btnLoginNow, R.id.btnSignupNow, R.id.btnLoginFacebook, R.id.btnSignupFacebook})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btnLoginNow:
-                ButterKnife.findById(this, R.id.layoutLogin).setVisibility(View.VISIBLE);
-                Animation in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
-                Animation out = AnimationUtils.loadAnimation(this, R.anim.fade_out);
-                ButterKnife.findById(this, R.id.layoutLogin).startAnimation(in);
-                out.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        ButterKnife.findById(LoginActivity.this, R.id.layoutSignup).setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-                });
-                ButterKnife.findById(this, R.id.layoutSignup).startAnimation(out);
-                break;
-            case R.id.btnSignupNow:
-                Animation fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
-                Animation fade_out = AnimationUtils.loadAnimation(this, R.anim.fade_out);
-                fade_out.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        ButterKnife.findById(LoginActivity.this, R.id.layoutLogin).setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
-                ButterKnife.findById(this, R.id.layoutSignup).setVisibility(View.VISIBLE);
-                ButterKnife.findById(this, R.id.layoutSignup).startAnimation(fade_in);
-                ButterKnife.findById(this, R.id.layoutLogin).startAnimation(fade_out);
-                break;
-            case R.id.btnLoginFacebook:
-            case R.id.btnSignupFacebook:
-                LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email", "user_birthday", "user_friends"));
-                break;
-            case R.id.btnLoginGmail:
-                //TODO
-                break;
-        }
+    public interface LoginFacebookCompletion {
+        public void onCompleted(JSONObject jsonObject);
     }
 }

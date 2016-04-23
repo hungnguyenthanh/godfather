@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/boy"
+        android:layout_width="81dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-7dp"
+        android:layout_marginTop="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/boy" />
+
+    <ImageView
+        android:id="@+id/girl"
+        android:layout_width="81dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/girl" />
+
+    <LinearLayout
+        android:id="@+id/layoutLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/boy"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/login_doop_account"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/btnLoginGmail"
+            style="@style/EditTextLogin"
+            android:layout_width="177dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_login_email_button"
+            android:drawableLeft="@drawable/ic_email"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Login in with email"
+            android:textColor="@color/text_color_white"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnLoginFacebook"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/or" />
+
+        <TextView
+            android:id="@+id/btnLoginFacebook"
+            style="@style/EditTextLogin"
+            android:layout_width="177dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_login_fb_button"
+            android:drawableLeft="@drawable/ic_fb"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/login_with_facebook"
+            android:textColor="@color/text_color_white"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/don_t_have_an_account"
+            android:textColor="@color/text_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/btnSignupNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/signup_now"
+            android:textColor="@color/text_color_green"
+            android:textSize="15sp"
+            android:textStyle="" />
+
+    </LinearLayout>
+</RelativeLayout>
