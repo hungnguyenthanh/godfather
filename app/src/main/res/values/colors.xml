@@ -25,4 +25,8 @@
     <color name="divider_color">#e7ecf0</color>
     <color name="gray">#d5d5d5</color>
     <color name="text_color">#494949</color>
+
+    <color name="bg_edt_login">#ededef</color>
+    <color name="bg_btn_fb_login">#4c66a4</color>
+    <color name="bg_btn_email_login">#639e26</color>
 </resources>

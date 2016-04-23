@@ -68,6 +68,8 @@ public class SplashActivity extends AppCompatActivity {
 
         initDemo();
         mlistCategoryAdapter = new ChooseCategoryRVAdapter(listCategories);
+
+
     }
 
     private void initDemo() {
@@ -78,17 +80,7 @@ public class SplashActivity extends AppCompatActivity {
             category.categoryId = "" + i;
             listCategories.add(category);
         }
-    }
 
-    private void setupAnimation() {
-        LayoutTransition layoutTransition = ((LinearLayout) findViewById(R.id.layoutAction)).getLayoutTransition();
-        layoutTransition.enableTransitionType(LayoutTransition.CHANGING);
-        layoutTransition.setInterpolator(LayoutTransition.CHANGING, new DecelerateInterpolator(1.0f));
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         circleProgress.setProgressIndeterminateAnimation(3000);
         circleProgress.setOnProgressViewListener(new OnProgressViewListener() {
             @Override
@@ -118,6 +110,18 @@ public class SplashActivity extends AppCompatActivity {
                 tvProgress.setText((int) progress + "%");
             }
         });
+    }
+
+    private void setupAnimation() {
+        LayoutTransition layoutTransition = ((LinearLayout) findViewById(R.id.layoutAction)).getLayoutTransition();
+        layoutTransition.enableTransitionType(LayoutTransition.CHANGING);
+        layoutTransition.setInterpolator(LayoutTransition.CHANGING, new DecelerateInterpolator(1.0f));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 
     @OnClick(R.id.btnGoHome)

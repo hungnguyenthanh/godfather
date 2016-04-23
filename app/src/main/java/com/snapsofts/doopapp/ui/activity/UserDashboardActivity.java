@@ -1,6 +1,7 @@
 package com.snapsofts.doopapp.ui.activity;
 
 import android.animation.LayoutTransition;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +9,8 @@ import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -16,8 +19,11 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.facebook.login.LoginManager;
 import com.snapsofts.doopapp.R;
+import com.snapsofts.doopapp.commons.Constants;
 import com.snapsofts.doopapp.data.model.Category;
+import com.snapsofts.doopapp.util.Utils;
 import com.transitionseverywhere.TransitionManager;
 import com.transitionseverywhere.TransitionUtils;
 
@@ -46,6 +52,7 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         listCategories = new ArrayList<>();
 
@@ -71,6 +78,8 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
 
         listView = (ListView) findViewById(R.id.listCategory);
         listView.setDividerHeight(0);
+
+        findViewById(R.id.btnLogout).setOnClickListener(this);
 
         setupAnimation();
 
@@ -125,8 +134,8 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
             if (btnUpgradeEmail.isSelected()) {
                 edtEmail.requestFocus();
                 edtEmail.setSelection(edtEmail.getText().length());
+                Utils.OpenKeyBoard(this);
             } else {
-
             }
         } else if (view == btnChangePassword) {
             btnChangePassword.setSelected(!btnChangePassword.isSelected());
@@ -136,10 +145,15 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
                 edtPassword.setText("");
                 edtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 edtPassword.requestFocus();
+                Utils.OpenKeyBoard(this);
             } else {
                 edtPassword.setText(getString(R.string.password_change));
                 edtPassword.setInputType(InputType.TYPE_CLASS_TEXT);
             }
+        } else if (view.getId() == R.id.btnLogout) {
+            LoginManager.getInstance().logOut();
+            getSharedPreferences(Constants.APP_PREFERENCES, Context.MODE_PRIVATE).edit().clear().apply();
+            finish();
         }
     }
 

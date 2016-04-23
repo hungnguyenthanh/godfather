@@ -129,7 +129,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:paddingLeft="16dp"
-                android:paddingRight="6dp"></ListView>
+                android:paddingRight="6dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -154,6 +154,7 @@
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:enabled="false"
+                android:singleLine="true"
                 android:text="dangnv.ict@gmail.com"
                 android:textColor="#494949"
                 android:textSize="14sp" />
@@ -210,7 +211,21 @@
                 android:text="@string/change"
                 android:textColor="@color/text_color_white"
                 android:textSize="12sp" />
+
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Logout"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/text_color_white"
+            android:background="@drawable/bg_btn_logout"
+            android:gravity="center"/>
     </LinearLayout>
 
 </LinearLayout>

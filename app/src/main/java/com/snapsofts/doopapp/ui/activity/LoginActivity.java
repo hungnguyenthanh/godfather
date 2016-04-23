@@ -13,12 +13,15 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.snapsofts.doopapp.commons.Constants;
 import com.snapsofts.doopapp.R;
+import com.snapsofts.doopapp.commons.Constants;
 
 import org.json.JSONObject;
 
 import java.util.Arrays;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by dangnv on 4/21/16.
@@ -26,7 +29,7 @@ import java.util.Arrays;
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
     CallbackManager callbackManager;
 
-    private View btnLoginFacebook;
+    private View btnLoginFacebook, btnSignupFacebook;
     private View btnLoginGmail;
 
 
@@ -34,18 +37,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
 
         initLoginWithFacebook();
 
-        btnLoginFacebook = findViewById(R.id.btnLoginFacebook);
-        btnLoginGmail = findViewById(R.id.btnLoginGmail);
-
-        btnLoginFacebook.setOnClickListener(this);
-        btnLoginGmail.setOnClickListener(this);
-
         btnWishList.setVisibility(View.GONE);
         btnDashboard.setVisibility(View.GONE);
-
 
     }
 
@@ -63,7 +60,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                                     public void onCompleted(JSONObject object, GraphResponse response) {
                                         //TODO Call api login in here;
                                         Log.i("LoginActivity", object.toString());
-                                        sharedPreferences.edit().putString(Constants.kUserToken, "faketoken").commit();
+                                        sharedPreferences.edit().putString(Constants.kUserToken, "faketoken").apply();
                                         finish();
                                     }
                                 }
@@ -87,17 +84,30 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     @Override
-    public void onClick(View view) {
-        if (view == btnLoginFacebook) {
-            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email", "user_birthday", "user_friends"));
-        } else if (view == btnLoginGmail) {
-            //TODO
-        }
-    }
-
-    @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+    @OnClick({R.id.btnLoginNow, R.id.btnSignupNow, R.id.btnLoginFacebook, R.id.btnSignupFacebook})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnLoginNow:
+                ButterKnife.findById(this, R.id.layoutLogin).setVisibility(View.VISIBLE);
+                ButterKnife.findById(this, R.id.layoutSignup).setVisibility(View.GONE);
+                break;
+            case R.id.btnSignupNow:
+                ButterKnife.findById(this, R.id.layoutLogin).setVisibility(View.GONE);
+                ButterKnife.findById(this, R.id.layoutSignup).setVisibility(View.VISIBLE);
+                break;
+            case R.id.btnLoginFacebook:
+            case R.id.btnSignupFacebook:
+                LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email", "user_birthday", "user_friends"));
+                break;
+            case R.id.btnLoginGmail:
+                //TODO
+                break;
+        }
     }
 }
