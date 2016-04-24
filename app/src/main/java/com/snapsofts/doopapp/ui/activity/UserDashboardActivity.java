@@ -3,6 +3,7 @@ package com.snapsofts.doopapp.ui.activity;
 import android.animation.LayoutTransition;
 import android.content.Context;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.InputType;
@@ -21,10 +22,13 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
+import com.mikhaellopez.circularimageview.CircularImageView;
 import com.snapsofts.doopapp.R;
 import com.snapsofts.doopapp.commons.Constants;
 import com.snapsofts.doopapp.data.model.Category;
+import com.snapsofts.doopapp.data.model.User;
 import com.snapsofts.doopapp.util.Utils;
+import com.squareup.picasso.Picasso;
 import com.transitionseverywhere.TransitionManager;
 import com.transitionseverywhere.TransitionUtils;
 
@@ -43,8 +47,12 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
     TextView btnUpgradeEmail;
     TextView btnChangePassword;
 
+    TextView tvUserName;
+    TextView tvLocation;
+
     private EditText edtEmail;
     private EditText edtPassword;
+    private ImageView avatarView;
 
     private ListView listView;
 
@@ -74,6 +82,10 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
         btnUpgradeEmail = (TextView) findViewById(R.id.tvUpgradeEmail);
         btnUpgradeEmail.setOnClickListener(this);
 
+        avatarView = (ImageView) findViewById(R.id.imgUserAvatar);
+        tvUserName = (TextView) findViewById(R.id.tvUserName);
+        tvLocation = (TextView) findViewById(R.id.tvUserLocation);
+
         edtEmail = (EditText) findViewById(R.id.edtUpgradeEmail);
         edtPassword = (EditText) findViewById(R.id.edtChangePassword);
 
@@ -85,6 +97,18 @@ public class UserDashboardActivity extends BaseActivity implements View.OnClickL
         setupAnimation();
 
         initDemo();
+
+        bindUserInfo();
+    }
+
+    private void bindUserInfo() {
+        User user = User.getCurrentUser(this);
+        if (user != null) {
+            Picasso.with(this).load(user.facebookAvatarUrl).into(avatarView);
+            tvUserName.setText(user.name);
+            tvLocation.setText(user.location);
+            edtEmail.setText(user.email);
+        }
     }
 
     private void initDemo() {

@@ -6,4 +6,5 @@ package com.snapsofts.doopapp.commons;
 public class Constants {
     public static String APP_PREFERENCES = "preferences";
     public static String kUserToken = "kUserToken";
+    public static String kUserProfile = "kUserProfile";
 }

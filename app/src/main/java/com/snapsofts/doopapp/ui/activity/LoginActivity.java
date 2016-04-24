@@ -17,6 +17,7 @@ import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.snapsofts.doopapp.R;
+import com.snapsofts.doopapp.commons.CommonUtils;
 import com.snapsofts.doopapp.commons.Constants;
 import com.snapsofts.doopapp.ui.fragment.LoginEmailFragment;
 import com.snapsofts.doopapp.ui.fragment.LoginFragment;
@@ -85,43 +86,56 @@ public class LoginActivity extends BaseActivity {
         callbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                     @Override
-                    public void onSuccess(LoginResult loginResult) {
+                    public void onSuccess(final LoginResult loginResult) {
                         GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
-
                                     @Override
                                     public void onCompleted(JSONObject object, GraphResponse response) {
-                                        //TODO should modify this
-                                        Log.i("LoginActivity", object.toString());
-                                        sharedPreferences.edit().putString(Constants.kUserToken, "faketoken").apply();
-                                        if (loginFacebookCompletion != null) {
-                                            loginFacebookCompletion.onCompleted(object);
-                                        }
+                                        if (response.getError() == null) { //Success
+                                            //TODO should modify this
+                                            Log.i("LoginActivity", "" + object != null ? object.toString() : "");
+                                            sharedPreferences.edit().putString(Constants.kUserToken, "faketoken").apply();
+                                            sharedPreferences.edit().putString(Constants.kUserProfile, object.toString()).commit();
+                                            if (loginFacebookCompletion != null) {
+                                                loginFacebookCompletion.onCompleted(object);
+                                            }
 
-                                        finish();
+                                            finish();
+                                            Intent intent = new Intent(LoginActivity.this, UserDashboardActivity.class);
+                                            startActivity(intent);
+
+                                        } else {
+                                            CommonUtils.showOkDialog(LoginActivity.this, "Login", getString(R.string.login_facebook_error), null);
+                                        }
                                     }
                                 }
                         );
                         Bundle parameters = new Bundle();
+                        parameters.putString("fields", "id, first_name, last_name, email,gender, birthday, location");
+
                         request.setParameters(parameters);
                         request.executeAsync();
                     }
 
                     @Override
                     public void onCancel() {
-
+                        Log.e(LoginActivity.class.getName(), "Login Facebook cancelled");
                     }
 
                     @Override
                     public void onError(FacebookException error) {
-
+                        Log.e(LoginActivity.class.getName(), "Login Facebook error: " + error.getMessage());
                     }
                 }
         );
     }
 
     public void loginWithFacebook(LoginFacebookCompletion completion) {
-        loginFacebookCompletion = completion;
-        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email", "user_birthday", "user_friends"));
+        if (CommonUtils.checkNetwork(this)) {
+            loginFacebookCompletion = completion;
+            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email", "user_birthday", "user_friends"));
+        } else {
+            CommonUtils.showOkDialog(this, "Login", getString(R.string.no_internet_connection), null);
+        }
     }
 
     @Override
