@@ -23,4 +23,5 @@
     <dimen name="circle_loading_width">110dp</dimen>
     <dimen name="_10dp">6dp</dimen>
     <dimen name="text_size_login_edt">14sp</dimen>
+    <dimen name="_4dp">3dp</dimen>
 </resources>

@@ -11,7 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.snapsofts.doopapp.R;
-import com.snapsofts.doopapp.ui.view.DividerItemDecoration;
+import com.snapsofts.doopapp.ui.view.VerticalSpaceItemDecoration;
+import com.snapsofts.doopapp.util.Utils;
 
 public class ListCategoryFragment extends Fragment {
 
@@ -52,8 +53,11 @@ public class ListCategoryFragment extends Fragment {
         Context context = view.getContext();
         RecyclerView recyclerView = (RecyclerView) view;
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.addItemDecoration(
+                new VerticalSpaceItemDecoration(Utils.dpToPx(getActivity().getApplicationContext(),
+                        (int) getResources().getDimension(R.dimen._4dp))));
 
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), R.drawable.divider_horizontal));
+
 
 
         mAdapter = new UserCategoryRecyclerViewAdapter();
