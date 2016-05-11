@@ -1,31 +1,28 @@
 package com.snapsofts.doopapp.ui.activity;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
+import android.text.Html;
 import android.widget.TextView;
 
 import com.snapsofts.doopapp.R;
-import com.snapsofts.doopapp.data.model.User;
-import com.snapsofts.doopapp.util.SwipeGestureDetector;
+import com.snapsofts.doopapp.data.model.Story;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class HomeActivity extends BaseActivity {
+public class HomeActivity extends AppCompatActivity {
 
+    public static final String EXTRA_CHAP = "EXTRA_CHAP";
+
+    @Bind(R.id.tvContent)
+    TextView tvContent;
     @Bind(R.id.btnWishList)
     TextView btnWishList;
-    @Bind(R.id.layout1)
-    View layoutView;
-    private GestureDetector mDetector;
 
+    private int chap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,42 +30,18 @@ public class HomeActivity extends BaseActivity {
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        final Animation exitAnimation = AnimationUtils.loadAnimation(this, R.anim.exit_to_top);
-        final Animation inAnimation = AnimationUtils.loadAnimation(this, R.anim.in_from_top);
+        chap = getIntent().getIntExtra(EXTRA_CHAP, 0);
 
-        mDetector = new GestureDetector(this, new SwipeGestureDetector(
-                new SwipeGestureDetector.OnSwipeListener() {
-                    @Override
-                    public void onSwipe(int slope) {
-                        switch (slope) {
-                            case SwipeGestureDetector.TOP:
-                                layoutView.startAnimation(exitAnimation);
-                                break;
-                            case SwipeGestureDetector.DOWN:
-                                layoutView.startAnimation(inAnimation);
-                                break;
-                        }
-                    }
-                }));
+        btnWishList.setText("Chương " + (chap + 1));
+
+        tvContent.setText(Html.fromHtml(Story.getData(chap)));
+
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return mDetector.onTouchEvent(event);
-    }
-
-    @Override
-    protected void buttonHomeClick() {
-    }
-
-    @OnClick(R.id.btnAdd)
+    @OnClick(R.id.btnDashboard)
     public void onClick() {
-        if (!User.userLoggedIn(getApplicationContext())) { //User not logged in => Show login screen.
-            gotoLogin();
-        } else {
-            //TODO - Add this item to wishlist
-
-        }
+        finish();
     }
 }

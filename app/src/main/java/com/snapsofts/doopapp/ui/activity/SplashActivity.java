@@ -14,25 +14,25 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.snapsofts.doopapp.R;
-import com.snapsofts.doopapp.data.model.Category;
+import com.snapsofts.doopapp.commons.Constants;
+import com.snapsofts.doopapp.data.model.Story;
 import com.snapsofts.doopapp.ui.adapter.ChooseCategoryRVAdapter;
 import com.snapsofts.doopapp.ui.view.VerticalSpaceItemDecoration;
 import com.snapsofts.doopapp.ui.view.progressviews.CircleProgressBar;
 import com.snapsofts.doopapp.ui.view.progressviews.OnProgressViewListener;
 import com.snapsofts.doopapp.util.Utils;
 
-import java.util.ArrayList;
+import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity implements ChooseCategoryRVAdapter.ChooseCategory {
 
     @Bind(R.id.circle_progress)
     CircleProgressBar circleProgress;
@@ -40,18 +40,10 @@ public class SplashActivity extends AppCompatActivity {
     TextView tvProgress;
     @Bind(R.id.layoutProgress)
     FrameLayout layoutProgress;
-    @Bind(R.id.logo)
-    ImageView logo;
-
-    @Bind(R.id.btnGoHome)
-    View btnGoHome;
-
     @Bind(R.id.listCategory)
     RecyclerView listView;
 
     private ChooseCategoryRVAdapter mlistCategoryAdapter;
-
-    ArrayList<Category> listCategories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,28 +51,26 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
 
-        System.gc();
         circleProgress.setRoundEdgeProgress(true);
         circleProgress.setWidthProgressBarLine(10);
         circleProgress.setTextSize(16);
 
         setupAnimation();
 
+        try {
+            Story.getData(Utils.readStringFromAssets(getApplicationContext(), Constants.DATA_FILE_NAME));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        mlistCategoryAdapter = new ChooseCategoryRVAdapter();
+        mlistCategoryAdapter.setOnItemClick(this);
         initDemo();
-        mlistCategoryAdapter = new ChooseCategoryRVAdapter(listCategories);
 
 
     }
 
     private void initDemo() {
-        listCategories = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            Category category = new Category();
-            category.name = "Category " + i;
-            category.categoryId = "" + i;
-            listCategories.add(category);
-        }
-
         circleProgress.setProgressIndeterminateAnimation(3000);
         circleProgress.setOnProgressViewListener(new OnProgressViewListener() {
             @Override
@@ -124,10 +114,15 @@ public class SplashActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.btnGoHome)
-    public void goHomeClick(View view) {
+
+    @Override
+    public void onItemClick(int pos) {
+        startReadingActivity(pos);
+    }
+
+    private void startReadingActivity(int pos) {
         Intent intent = new Intent(this, HomeActivity.class);
+        intent.putExtra(HomeActivity.EXTRA_CHAP, pos);
         startActivity(intent);
-        finish();
     }
 }

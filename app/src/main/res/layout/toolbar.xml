@@ -5,13 +5,6 @@
     android:layout_height="?attr/actionBarSize"
     android:background="@drawable/bg_toolbar">
 
-    <ImageView
-        android:id="@+id/btnLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:adjustViewBounds="true"
-        android:src="@drawable/img_toolbar_logo" />
-
     <TextView
         android:id="@+id/btnWishList"
         android:layout_width="wrap_content"
@@ -19,10 +12,10 @@
         android:layout_marginLeft="30dp"
         android:background="@drawable/rounded_box_white"
         android:paddingBottom="6dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:layout_gravity="center"
+        android:paddingLeft="26dp"
+        android:paddingRight="26dp"
         android:paddingTop="6dp"
-        android:text="100 Coupons"
         android:textColor="@color/text_color_green" />
 
     <ImageView

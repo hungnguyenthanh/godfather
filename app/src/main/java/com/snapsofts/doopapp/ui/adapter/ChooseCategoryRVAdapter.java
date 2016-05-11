@@ -4,21 +4,22 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.snapsofts.doopapp.R;
-import com.snapsofts.doopapp.data.model.Category;
-
-import java.util.ArrayList;
+import com.snapsofts.doopapp.data.model.Story;
 
 import butterknife.ButterKnife;
 
 public class ChooseCategoryRVAdapter extends RecyclerView.Adapter<ChooseCategoryRVAdapter.ViewHolder> {
 
-    private ArrayList<Category> mValues = new ArrayList<>();
+    private ChooseCategory mChooseCategory;
 
-    public ChooseCategoryRVAdapter(ArrayList<Category> listCategories) {
-        mValues = listCategories;
+    public ChooseCategoryRVAdapter() {
+    }
+
+    public void setOnItemClick(ChooseCategory category) {
+        this.mChooseCategory = category;
     }
 
     @Override
@@ -30,30 +31,35 @@ public class ChooseCategoryRVAdapter extends RecyclerView.Adapter<ChooseCategory
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+        holder.tvChapTitle.setText("Chương " + (position + 1));
     }
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return Story.sData.length();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public ImageView iconTick;
+        private TextView tvChapTitle;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            iconTick = ButterKnife.findById(mView, R.id.icon_tick);
+            tvChapTitle = ButterKnife.findById(mView, R.id.tvChapTitle);
 
             mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    final Category category = mValues.get(getAdapterPosition());
-                    category.selected = !category.selected;
-                    iconTick.setSelected(category.selected);
+                    if (mChooseCategory != null) {
+                        mChooseCategory.onItemClick(getAdapterPosition());
+                    }
                 }
             });
         }
+    }
+
+    public interface ChooseCategory {
+        void onItemClick(int pos);
     }
 }

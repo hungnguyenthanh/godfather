@@ -15,6 +15,7 @@
         android:src="@drawable/ic_category_food" />
 
     <TextView
+        android:id="@+id/tvChapTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -29,7 +30,6 @@
         android:layout_weight="1" />
 
     <ImageView
-        android:id="@+id/icon_tick"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:src="@drawable/icon_tick_selector" />

@@ -41,23 +41,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.ChooseCategoryActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.activity.HomeActivity"
             android:label="@string/title_activity_menu_coupon"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ui.activity.WishlistListActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.activity.LoginActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.UserDashboardActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
