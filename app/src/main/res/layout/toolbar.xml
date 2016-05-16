@@ -5,25 +5,41 @@
     android:layout_height="?attr/actionBarSize"
     android:background="@drawable/bg_toolbar">
 
+    <ImageView
+        android:id="@+id/btnPrev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:src="@drawable/ic_prev" />
+
     <TextView
         android:id="@+id/btnWishList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginLeft="30dp"
         android:background="@drawable/rounded_box_white"
         android:paddingBottom="6dp"
-        android:layout_gravity="center"
         android:paddingLeft="26dp"
         android:paddingRight="26dp"
         android:paddingTop="6dp"
         android:textColor="@color/text_color_green" />
 
     <ImageView
-        android:id="@+id/btnDashboard"
+        android:id="@+id/btnNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:padding="8dp"
-        android:src="@drawable/ic_toolbar_menu" />
+        android:src="@drawable/ic_next" />
+
+    <CheckBox
+        android:id="@+id/cbDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:button="@drawable/bg_checkbox_day"
+        android:checked="true" />
 
 </android.support.v7.widget.Toolbar>

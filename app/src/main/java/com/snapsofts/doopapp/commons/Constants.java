@@ -5,4 +5,6 @@ package com.snapsofts.doopapp.commons;
  */
 public class Constants {
     public static final String DATA_FILE_NAME = "data.txt";
+
+    public static boolean isLightTheme = true;
 }
